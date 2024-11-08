@@ -1,0 +1,132 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 20 14.3% 4.1%;
+
+    --muted: 60 4.8% 95.9%;
+    --muted-foreground: 25 5.3% 44.7%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 20 14.3% 4.1%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 20 14.3% 4.1%;
+
+    --border: 20 5.9% 90%;
+    --input: 20 5.9% 90%;
+
+    --primary: 24 9.8% 10%;
+    --primary-foreground: 60 9.1% 97.8%;
+
+    --secondary: 60 4.8% 95.9%;
+    --secondary-foreground: 24 9.8% 10%;
+
+    --accent: 60 4.8% 95.9%;
+    --accent-foreground: 24 9.8% 10%;
+
+    --destructive: 0 63% 59%;
+    --destructive-foreground: 60 9.1% 97.8%;
+
+    --ring: 20 14.3% 4.1%;
+
+    --radius: 0.5rem;
+
+    
+    /* Decorative Text Colors For Readability */
+    /* red, green, yellow, blue, purple, pink, orange, gray, cyan, teal; darker so they're readable on a white background */
+    --accent-red: rgb(220 0 20);
+    --accent-green: rgb(12 167 16);
+    --accent-yellow: rgb(165 131 0);
+    --accent-blue: rgb(8 90 191);
+    --accent-purple: rgb(100 0 200);
+    --accent-pink: rgb(240 0 200);
+    --accent-orange: rgb(187 73 0);
+    --accent-gray: rgb(135 140 135);
+    --accent-teal: rgb(4 135 87);
+    
+    --navbg: 0 0% 100%;
+  }
+
+  .dark {
+    --background: 20 14.3% 4.1%;
+    --foreground: 60 9.1% 97.8%;
+
+    --muted: 12 6.5% 15.1%;
+    --muted-foreground: 24 5.4% 63.9%;
+
+    --popover: 20 14.3% 4.1%;
+    --popover-foreground: 60 9.1% 97.8%;
+
+    --card: 20 14.3% 4.1%;
+    --card-foreground: 60 9.1% 97.8%;
+
+    --border: 12 6.5% 15.1%;
+    --input: 12 6.5% 15.1%;
+
+    --primary: 60 9.1% 97.8%;
+    --primary-foreground: 24 9.8% 10%;
+
+    --secondary: 12 6.5% 15.1%;
+    --secondary-foreground: 60 9.1% 97.8%;
+
+    --accent: 12 6.5% 15.1%;
+    --accent-foreground: 60 9.1% 97.8%;
+
+    --destructive: 0 38.69% 45.76%;
+    --destructive-foreground: 60 9.1% 97.8%;
+
+    --ring: 24 5.7% 82.9%;
+
+    
+    /* Decorative Text Colors For Readability */
+    /* red, green, yellow, blue, purple, pink, orange, gray, cyan, teal; lighter + brighter so they're readable on a black background */
+    --accent-red: rgb(248 0 100);
+    --accent-green: rgb(50 190 65);
+    --accent-yellow: rgb(210 205 0);
+    --accent-blue: rgb(22 129 237);
+    --accent-purple: rgb(179 96 255);
+    --accent-pink: rgb(240 0 200);
+    --accent-orange: rgb(255 100 0);
+    --accent-gray: rgb(135 140 135);
+    --accent-teal: rgb(0 190 170);
+    
+    --navbg: 20 14.3% 4.1%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+/* Scrollbar styling */
+::-webkit-scrollbar {
+  width: 0.6rem;
+  height: 0.6rem;
+  border-radius: 100vh;
+  background: hsl(var(--muted));
+}
+
+::-webkit-scrollbar-track {
+  border-radius: 100vh;
+  background: hsl(var(--muted));
+}
+
+::-webkit-scrollbar-thumb {
+  background: hsl(var(--muted-foreground));
+  border-radius: 100vh;
+  border: 2px solid hsl(var(--muted));
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: hsl(var(--foreground));
+  border-radius: 100vh;
+}
