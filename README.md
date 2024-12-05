@@ -39,6 +39,8 @@ bun run dev -- --host
 
 This will start the development server and open the website in your default browser. The server will automatically reload the page when you make changes to the source code.
 
+**Note:** The first time you run the development server or the build command, it will take some time for the program to generate optimized versions of website's assets (images, videos, etc.). These optimizations are cached in the `node_modules\.cache\imagetools\` and will be reused on subsequent runs. Because of this, when running the development server for the first time, navigating the website will be less responsive.
+
 ## Deployment
 
 To compile the website for production, use the following command:
