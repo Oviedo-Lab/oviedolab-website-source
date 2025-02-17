@@ -3,7 +3,6 @@ import teamData from '$lib/assets/team/team.json';
 import ExternalLink from 'lucide-svelte/icons/external-link';
 import Globe from 'lucide-svelte/icons/globe';
 import Mail from 'lucide-svelte/icons/mail';
-import BrandIcon from '$lib/components/svg-icons/brand-icon.svelte';
 
 // Default and Schematic skeleton for the external links
 const predefinedExternalLinks = [

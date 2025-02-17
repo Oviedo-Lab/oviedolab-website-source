@@ -175,7 +175,8 @@
             <p class="text-lg font-medium text-foreground mx-auto text-center sm:text-lg md:text-xl lg:text-2xl">{data.member.title}</p>
 
             <!-- Education -->
-            {#if !data.member.isAlumni && data.member.education.length > 0}
+            <!-- {#if !data.member.isAlumni && data.member.education.length > 0} -->
+            {#if data.member.education.length > 0}
                 <div class="w-full px-10 my-4 md:px-0 lg:max-w-[80ch]">
                     <h2 class="my-3 text-left text-2xl font-bold text-foreground">Education</h2>
                     <div class="flex flex-col items-center justify-start gap-2">
@@ -187,7 +188,8 @@
             {/if}
 
             <!-- Honors and Awards -->
-            {#if !data.member.isAlumni && data.member.honorsAndAwards.length > 0}
+            <!-- {#if !data.member.isAlumni && data.member.honorsAndAwards.length > 0} -->
+            {#if data.member.honorsAndAwards.length > 0}
                 <div class="w-full px-10 my-4 md:px-0 lg:max-w-[80ch]">
                     <h2 class="my-3 text-left text-2xl font-bold text-foreground">Honors and Awards</h2>
                     <div class="flex flex-col items-center justify-start gap-2">

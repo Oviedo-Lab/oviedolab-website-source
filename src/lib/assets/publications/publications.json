@@ -3,6 +3,28 @@
 
     "publications": [
         {
+            "title": "Non-Canonical Role of DNA Mismatch Repair on Sensory Processing in Mice",
+            "authors": [
+                "Sadia N. Rahman",
+                "Demetrios Neophytou",
+                "Siboney Oviedo-Gray",
+                "Bao Q. Vuong",
+                "Hysell V. Oviedo"
+            ],
+            "abstract": [
+                "DNA repair mechanisms are essential for cellular development and function. This is particularly true in post-mitotic neurons, where deficiencies in DNA damage response proteins can result in severe neurodegenerative and neurodevelopmental disorders. One highly conserved factor involved in DNA repair is Mut-S Homolog 2 (Msh2), which is responsible for correcting base- base mismatches and insertion/deletion loops during cell proliferation. However, its role in mature neuronal function remains poorly understood. This study investigates the impact of Msh2 loss on sensory processing in a mouse model. Using electrophysiological and molecular assays, we identified significant deficits in cortical and thalamic sound processing in Msh2ᐨᐟᐨ mice. These deficits were linked to dysfunction of the thalamic reticular nucleus (TRN), a brain region that critically regulates corticothalamic and thalamocortical activity. Our findings revealed increased oxidative damage, aberrant neuronal activity, and elevated parvalbumin (PV) expression in PVᐩ interneurons in the TRN of Msh2ᐨᐟᐨ mice. Additionally, we observed the presence of connexin plaques, indicating that disrupted gap junction formation may contribute to impaired TRN function. These results underscore the critical role of Msh2 in supporting the functionality of PVᐩ interneurons in the TRN, thereby profoundly influencing sensory processing pathways. This study provides new insights into the importance of DNA repair mechanisms in neuronal development and function, potentially contributing to our understanding of their role in neurological disorders."    
+            ],
+            "abstractHeadings": [],
+            "yyyymmdd": "20250217",
+            "doi": "10.1101/2025.02.13.638164",
+            "journal": "bioRxiv",
+            "url": "https://www.biorxiv.org/content/10.1101/2025.02.13.638164v1.full.pdf+html",
+            "isPreprint": true,
+            "isReviewArticle": false,
+            "thumbnail": "/src/lib/assets/publications/SadiaRahman2025/SadiaRahman2025-thumbnail.png",
+            "thumbnailSummary": "Figure 1 from the paper shows diminished auditory function in the ACx of Msh2(-/-) mice."
+        },
+        {
             "title": "Mouse Auditory Cortex Undergoes Asynchronous Maturation in the Right and Left Hemispheres",
             "authors": [
                 "Ashlan Reid",

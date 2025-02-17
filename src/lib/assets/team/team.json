@@ -203,7 +203,7 @@
             ]
         },
         {
-            "isAlumni": false,
+            "isAlumni": true,
             "name": "Lydia Chen",
             "title": "Undergraduate",
             "suffix": "",
