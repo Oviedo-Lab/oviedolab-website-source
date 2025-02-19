@@ -6,9 +6,9 @@
     import * as Carousel from "$lib/components/ui/carousel/index.js";
     import * as Tooltip from "$lib/components/ui/tooltip";
     
-	import ExternalLink from 'lucide-svelte/icons/external-link';
-    
 	import BrandIcon from '$lib/components/svg-icons/brand-icon.svelte';
+	
+    import ExternalLink from 'lucide-svelte/icons/external-link';
     import Globe from 'lucide-svelte/icons/globe';
     import Mail from 'lucide-svelte/icons/mail';
     import User from 'lucide-svelte/icons/user';
@@ -82,10 +82,10 @@
 		return CVs[path].default || "##";
 	}
 
-    type BrandIconType = "discord" | "facebook" | "github" | "instagram" | "linkedin" | "orcid" | "soundcloud" | "tiktok" | "vimeo" | "x" | "youtube";
+    type BrandIconType = "discord" | "facebook" | "github" | "googleScholar" | "instagram" | "linkedin" | "orcid" | "soundcloud" | "tiktok" | "vimeo" | "x" | "youtube";
 
     // get available names from the BrandIcon component
-    const availableBrandIcons = ["discord", "facebook", "github", "instagram", "linkedin", "orcid", "soundcloud", "tiktok", "vimeo", "x", "youtube"];
+    const availableBrandIcons = ["discord", "facebook", "github", "googleScholar", "instagram", "linkedin", "orcid", "soundcloud", "tiktok", "vimeo", "x", "youtube"];
 
     // Type check if provided string is in availableBrandIcons
     function isValidBrandIcon(icon: string) {

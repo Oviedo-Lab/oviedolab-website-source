@@ -4,7 +4,9 @@
 	import * as Card from '$lib/components/ui/card/index.js';
 	import * as Dialog from '$lib/components/ui/dialog';
 	import Skeleton from '$lib/components/ui/skeleton/skeleton.svelte';
+	import * as Tooltip from '$lib/components/ui/tooltip';
 
+	import BrandIcon from '@/components/svg-icons/brand-icon.svelte';
 	import ExternalLink from 'lucide-svelte/icons/external-link';
 	import { get } from 'svelte/store';
 	import { browser } from '$app/environment';
@@ -82,7 +84,7 @@
 	<!-- group of sections by year -->
 	<!-- as a grid of 2 columns, first column is the year taking up 4rem, second column is the publications  -->
 	<div
-		class="mt-10 flex w-full flex-col items-center justify-start gap-6 rounded-lg py-10 pt-0 sm:mt-12 sm:gap-10"
+		class="mt-10 mb-10 flex w-full flex-col items-center justify-start gap-6 rounded-lg py-10 pt-0 sm:mt-12 sm:gap-10"
 	>
 		<!-- Dynamically generate the publications by year -->
 		{#each yearsSorted as year}
@@ -187,5 +189,29 @@
 				</div>
 			</section>
 		{/each}
+
+
+		<!-- Google Scholar -->
+		<a href="https://scholar.google.com/citations?hl=en&user=s2stPsAAAAAJ" class="bg-stone-100/30 dark:bg-stone-900/40 hover:bg-stone-100/60 hover:dark:bg-stone-900/70 flex flex-col sm:flex-row px-6 py-5 gap-5 justify-between items-center shadow-stone-800/20 dark:shadow-stone-200/20 rounded-lg border border-stone-600/70 dark:border-stone-400/70 hover:border-stone-600 hover:dark:border-stone-400 shadow-md w-[99%] sm:w-[calc(32rem+6%)] md:w-[calc(40rem+6%)] lg:w-[calc(44rem+6%)]" target="_blank" rel="noopener noreferrer">
+			<div class="flex justify-around items-center gap-6">
+				<img src="https://scholar.googleusercontent.com/citations?view_op=view_photo&user=s2stPsAAAAAJ" alt="Hysell Oviedo" class="rounded-full w-20 h-20 object-cover object-center" />
+				<div class="flex flex-col items-start justify-center gap-1">
+					<p class="text-xl font-bold text-left">Hysell V. Oviedo</p>
+					<p class="text-sm text-left text-stone-500">Roger M. Perlmutter Assistant Professor, Dept. of Neuroscience, WashU School of Medicine</p>
+				</div>
+			</div>
+
+			<div class="flex justify-around items-center gap-2">
+				<Tooltip.Root>
+					<Tooltip.Trigger>
+						<BrandIcon name="googleScholar" class="h-5 w-5 fill-current sm:h-7 sm:w-7 opacity-80" />
+					</Tooltip.Trigger>
+					<Tooltip.Content>
+						<p>Google Scholar</p>
+					</Tooltip.Content>
+				</Tooltip.Root>
+				<p class="block sm:hidden text-sm font-medium">Google Scholar</p>
+			</div>
+		</a>
 	</div>
 </main>

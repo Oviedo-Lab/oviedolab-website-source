@@ -39,6 +39,12 @@ const predefinedExternalLinks = [
         icon: 'github'
     },
     {
+        type: 'googleScholar',
+        title: 'Google Scholar',
+        url: '##',
+        icon: 'googleScholar'
+    },
+    {
         type: 'instagram',
         title: 'Instagram',
         url: '##',
@@ -91,7 +97,7 @@ const predefinedExternalLinks = [
 const predefinedIconTypes = predefinedExternalLinks.map(link => link.type);
 
 export interface ExternalLinkData {
-    type: "website" | "email" | "github" | "orcid" | "linkedin" | "x" | "discord" | "facebook" | "instagram" | "soundcloud" | "tiktok" | "vimeo" | "youtube";
+    type: "website" | "email" | "github" | "googleScholar" | "orcid" | "linkedin" | "x" | "discord" | "facebook" | "instagram" | "soundcloud" | "tiktok" | "vimeo" | "youtube";
     title: string;
     url: string;
 }

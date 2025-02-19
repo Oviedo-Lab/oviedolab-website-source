@@ -27,7 +27,18 @@
                 "My laboratory leverages the cutting-edge tools available in rodents to study circuitry in the context of species-specific vocalizations providing behavioral and computational constraints. Processing social calls requires simultaneously recognizing, categorizing, and assigning communicative importance to these fleeting signals. Lateralization—assigning specific computational tasks to each cerebral hemisphere for parallel processing—is an important strategy to solve this challenge. The novel approach of my research program has been to use lateralization as a comparative tool to reveal molecular, structural and functional differences between the left and right Auditory Cortices.",
                 "We have discovered lateralized processing of specific acoustic features in the mouse Auditory Cortex and identified circuit asymmetries that could support the necessary specialized computations. We plan to capitalize on these findings to determine the development and diversity of lateralized cortical specializations, and how they go awry in communication disorders."
             ],
-            "externalLinks": []
+            "externalLinks": [
+                {
+                    "type": "googleScholar",
+                    "title": "Google Scholar",
+                    "url": "https://scholar.google.com/citations?hl=en&user=s2stPsAAAAAJ"
+                },
+                {
+                    "type": "orcid",
+                    "title": "ORCID",
+                    "url": "https://orcid.org/0000-0002-9822-0081"
+                }
+            ]
         },
         {
             "isAlumni": false,
