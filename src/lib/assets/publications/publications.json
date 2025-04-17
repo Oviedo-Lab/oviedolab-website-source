@@ -3,6 +3,28 @@
 
     "publications": [
         {
+            "title": "Asynchronous development of the mouse auditory cortex is driven by hemispheric identity and sex",
+            "authors": [
+                "Ashlan P. Reid",
+                "Demetrios Neophytou",
+                "Robert Levy",
+                "Cody Pham",
+                "Hysell V. Oviedo"
+            ],
+            "abstract": [
+                "Lateralized auditory processing is essential for specialized functions such as speech processing, typically dominated by the Left Auditory Cortex (ACx) in humans. Hemispheric specializations also occur in the adult mouse ACx, but their developmental origins are unclear. Our study finds that the Left and Right ACx in mice reach developmental milestones at different ages. Thalamocortical responses and maturation of synaptic dynamics develop earlier in the Right ACx than the Left. We show that this timing offset predicts hemisphere-dependent differences in sensory-driven plasticity. Juvenile tone exposure at specific times results in imbalanced adult tone frequency representations in the Right and Left ACx. Additionally, sex influences the timing of plasticity; female Right ACx plasticity occurs before male Right ACx, and female Left ACx aligns with male Right ACx plasticity. Our findings demonstrate that sex and hemispheric identity drive asynchronous development and contribute to functional differences in sensory cortices."
+            ],
+            "abstractHeadings": [],
+            "yyyymmdd": "20250417",
+            "doi": "10.1038/s41467-025-58891-3",
+            "journal": "Nature Communications",
+            "url": "https://www.nature.com/articles/s41467-025-58891-3",
+            "isPreprint": false,
+            "isReviewArticle": false,
+            "thumbnail": "/src/lib/assets/publications/AshlanReid2025/AshlanReid2025-thumbnail.jpg",
+            "thumbnailSummary": "Figure 1 from the paper shows differences in thalamocortical input maturation between the left and right auditory cortex (ACx) across developmental stages, using bilateral slice preparation and voltage-sensitive dye imaging."
+        },
+        {
             "title": "Non-Canonical Role of DNA Mismatch Repair on Sensory Processing in Mice",
             "authors": [
                 "Sadia N. Rahman",
@@ -23,27 +45,6 @@
             "isReviewArticle": false,
             "thumbnail": "/src/lib/assets/publications/SadiaRahman2025/SadiaRahman2025-thumbnail.png",
             "thumbnailSummary": "Figure 1 from the paper shows diminished auditory function in the ACx of Msh2(-/-) mice."
-        },
-        {
-            "title": "Mouse Auditory Cortex Undergoes Asynchronous Maturation in the Right and Left Hemispheres",
-            "authors": [
-                "Ashlan Reid",
-                "Demetrios Neophytou",
-                "Robert Levy",
-                "Hysell V. Oviedo"
-            ],
-            "abstract": [
-                "Despite the significance of lateralized auditory processing in human cognition, there are limited studies in animal models exploring the developmental mechanisms of this cortical specialization. Here, we find that cellular and network signs of maturity in the Auditory Cortex (ACx) appear earlier in the right hemisphere in male mice. We further demonstrate that persistent, experience dependent map reorganization is confined to the hemisphere that is actively maturing and can be differentially engaged by temporally limited manipulations of the sensory environment. Our data suggests that differential timing in hemisphere development could lead to lateralized auditory functioning."
-            ],
-            "abstractHeadings": [],
-            "yyyymmdd": "20230101",
-            "doi": "10.1101/2024.01.16.575905",
-            "journal": "bioRxiv",
-            "url": "https://www.biorxiv.org/content/10.1101/2024.01.16.575905v1.full",
-            "isPreprint": true,
-            "isReviewArticle": false,
-            "thumbnail": "/src/lib/assets/publications/AshlanReid2023/AshlanReid2023-thumbnail.jpg",
-            "thumbnailSummary": "Figure 1 from the paper shows differences in thalamocortical input maturation between the left and right auditory cortex (ACx) across developmental stages, using bilateral slice preparation and voltage-sensitive dye imaging."
         },
         {
             "title": "Differences in temporal processing speeds between the right and left auditory cortex reflect the strength of recurrent synaptic connectivity",
