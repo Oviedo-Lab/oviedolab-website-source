@@ -156,7 +156,13 @@
             "biography": [
                 "My name is Noor Bibi. I am an international student from Pakistan, currently pursuing a Ph.D. in the Neuroscience program at WashU. I have previous research experience in sleep neuroscience and electrophysiology, focusing on the development of circuit motifs. I am passionate about understanding the underlying circuitry involved in various brain functions and how these circuits are altered in different disease models. In my free time, I enjoy cooking, playing tennis, and spending time with friends."
             ],
-            "externalLinks": []
+            "externalLinks": [
+                {
+                    "type": "orcid",
+                    "title": "ORCID",
+                    "url": "https://orcid.org/0009-0005-4691-198X"
+                }
+            ]
         },
         {
             "isAlumni": false,
