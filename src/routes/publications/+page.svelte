@@ -192,18 +192,18 @@
 
 
 		<!-- Google Scholar -->
-		<a href="https://scholar.google.com/citations?hl=en&user=s2stPsAAAAAJ" class="bg-stone-100/30 dark:bg-stone-900/40 hover:bg-stone-100/60 hover:dark:bg-stone-900/70 flex flex-col sm:flex-row px-6 py-5 gap-5 justify-between items-center shadow-stone-800/20 dark:shadow-stone-200/20 rounded-lg border border-stone-600/70 dark:border-stone-400/70 hover:border-stone-600 hover:dark:border-stone-400 shadow-md w-[99%] sm:w-[calc(32rem+6%)] md:w-[calc(40rem+6%)] lg:w-[calc(44rem+6%)]" target="_blank" rel="noopener noreferrer">
+		<a href="https://scholar.google.com/citations?hl=en&user=s2stPsAAAAAJ" class="bg-stone-100/30 dark:bg-stone-900/40 hover:bg-stone-100/60 hover:dark:bg-stone-900/70 flex flex-col sm:flex-row px-6 py-5 gap-5 justify-between items-center shadow-stone-800/20 dark:shadow-stone-200/20 rounded-lg border-2 border-stone-600/70 dark:border-stone-400/70 hover:border-stone-600 hover:dark:border-stone-400 shadow-md w-[99%] sm:w-[calc(32rem+6%)] md:w-[calc(40rem+6%)] lg:w-[calc(44rem+6%)]" target="_blank" rel="noopener noreferrer">
 			<div class="flex justify-around items-center gap-6">
 				<img src="https://scholar.googleusercontent.com/citations?view_op=view_photo&user=s2stPsAAAAAJ" alt="Hysell Oviedo" class="rounded-full w-20 h-20 object-cover object-center" />
 				<div class="flex flex-col items-start justify-center gap-1">
 					<p class="text-xl font-bold text-left">Hysell V. Oviedo</p>
-					<p class="text-sm text-left text-stone-500">Roger M. Perlmutter Assistant Professor, Dept. of Neuroscience, WashU School of Medicine</p>
+					<p class="text-sm text-left text-accent-foreground/80">Roger M. Perlmutter Assistant Professor, Dept. of Neuroscience, WashU School of Medicine</p>
 				</div>
 			</div>
 
 			<div class="flex justify-around items-center gap-2">
 				<Tooltip.Root>
-					<Tooltip.Trigger>
+					<Tooltip.Trigger aria-label="Google Scholar">
 						<BrandIcon name="googleScholar" class="h-5 w-5 fill-current sm:h-7 sm:w-7 opacity-80" />
 					</Tooltip.Trigger>
 					<Tooltip.Content>
