@@ -89,7 +89,7 @@
 		<!-- Dynamically generate the publications by year -->
 		{#each yearsSorted as year}
 			<section
-				class="shadow-stone-800/20 dark:shadow-stone-200/20 shadow-md flex w-[99%] flex-col items-center justify-start gap-6 rounded-lg border-2 border-stone-500 bg-stone-100 py-12 pt-8 sm:pt-12 dark:bg-stone-900 sm:w-[calc(32rem+6%)] sm:gap-10 md:w-[calc(40rem+6%)] lg:w-[calc(44rem+6%)]"
+				class="shadow-stone-800/20 dark:shadow-stone-200/20 shadow-md flex w-[99%] flex-col items-center justify-start gap-6 rounded-lg border-2 border-stone-500 bg-stone-100 py-12 pt-8 sm:pt-12 dark:bg-stone-900 sm:w-[calc(36rem+6%)] sm:gap-10 md:w-[calc(40rem+6%)] lg:w-[calc(44rem+6%)]"
 			>
 				<h2 class="text-center text-3xl font-bold text-foreground">
 					{year}
@@ -97,33 +97,33 @@
 				<div class="flex flex-col items-center justify-start gap-6 sm:gap-10">
 					{#each publicationsYears[year] || {} as publication}
 						<article class="flex flex-col items-center justify-start">
-							<Card.Root class="w-[92%] p-3 pb-5 sm:w-[32rem] md:w-[40rem] lg:w-[44rem]">
+							<Card.Root class="w-[94%] pt-3 pb-2 sm:pb-3 md:pb-4 px-1 sm:px-2 md:px-3 sm:w-[34rem] md:w-[40rem] lg:w-[44rem]">
 								<div class="flex flex-col items-start">
 									<div class="flex w-full flex-col items-end justify-between align-top">
 										{#if publication.isReviewArticle}
 											<Badge
 												variant="outline"
-												class="bg-[#e2d994] hover:bg-[#cdc586] px-2 text-xs dark:bg-[#cdc586] dark:hover:bg-[#e2d994] dark:text-stone-900"
+												class="mr-2 sm:mr-1 md:mr-0 bg-[#e2d994] hover:bg-[#cdc586] px-2 text-xs dark:bg-[#cdc586] dark:hover:bg-[#e2d994] dark:text-stone-900"
 											>
 												Review Article
 												<span class="sr-only">Review Article</span>
 											</Badge>
 										{:else if publication.isPreprint}
-											<Badge variant="destructive" class="px-2 text-xs">
+											<Badge variant="destructive" class="mr-2 sm:mr-1 md:mr-0 px-2 text-xs">
 												Preprint
 												<span class="sr-only">Preprint</span>
 											</Badge>
 										{:else}
 											<Badge
 												variant="secondary"
-												class="bg-[#bedbd1] hover:bg-[#96c5b5] px-2 text-xs dark:bg-[#96c5b5] dark:hover:bg-[#a8dfcd] dark:text-stone-900"
+												class="mr-2 sm:mr-1 md:mr-0 bg-[#bedbd1] hover:bg-[#96c5b5] px-2 text-xs dark:bg-[#96c5b5] dark:hover:bg-[#a8dfcd] dark:text-stone-900"
 											>
 												Peer Reviewed
 												<span class="sr-only">Peer Reviewed</span>
 											</Badge>
 										{/if}
 										<Card.Header class="flex-1 pt-1 w-full">
-											<Card.Title class="text-xl text-left">{publication.title}</Card.Title>
+											<Card.Title class="text-xl text-left scroll-mt-28" id={publication.title.toLowerCase().replace(/\s/g, '-')}>{publication.title}</Card.Title>
 											<Card.Description>
 												<p class="text-left">{publication.authors.join(', ')}</p>
 												<p class="text-right font-medium mt-2">{publication.journal}</p>
