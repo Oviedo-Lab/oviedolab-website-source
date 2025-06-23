@@ -16,9 +16,29 @@ const ASSETS = [
 	...files  // everything in `static`
 ];
 
+function isMeteredConnection(): boolean {
+	if ('connection' in navigator) {
+		const connection = (navigator as any).connection || (navigator as any).mozConnection || (navigator as any).webkitConnection;
+		
+		if (connection) {
+			// Check for typical metered connection types
+			const meteredTypes = ['cellular', 'slow-2g', '2g', '3g', '4g', '5g'];
+			if (meteredTypes.includes(connection.effectiveType) || connection.saveData === true) {
+				return true;
+			}
+		}
+	}
+	return false;
+}
+
 sw.addEventListener('install', (event) => {
 	// Create a new cache and add all files to it
 	async function addFilesToCache() {
+		// Skip aggressive pre-caching on metered connections
+		if (isMeteredConnection()) {
+			return;
+		}
+		
 		const cache = await caches.open(CACHE);
 		await cache.addAll(ASSETS);
 	}
@@ -53,7 +73,6 @@ sw.addEventListener('fetch', (event) => {
 				return response;
 			}
 		}
-
 		// for everything else, try the network first, but
 		// fall back to the cache if we're offline
 		try {
@@ -64,7 +83,7 @@ sw.addEventListener('fetch', (event) => {
 			if (!(response instanceof Response)) {
 				throw new Error('invalid response from fetch');
 			}
-
+            // update cache upon successful responses
 			if (response.status === 200) {
 				cache.put(event.request, response.clone());
 			}
