@@ -21,9 +21,8 @@ function isMeteredConnection(): boolean {
 		const connection = (navigator as any).connection || (navigator as any).mozConnection || (navigator as any).webkitConnection;
 		
 		if (connection) {
-			// Check for typical metered connection types
-			const meteredTypes = ['cellular', 'slow-2g', '2g', '3g', '4g', '5g'];
-			if (meteredTypes.includes(connection.effectiveType) || connection.saveData === true) {
+			// Respect user's data saver setting
+			if (connection.saveData === true) {
 				return true;
 			}
 		}
