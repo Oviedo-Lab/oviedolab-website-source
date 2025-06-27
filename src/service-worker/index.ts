@@ -30,6 +30,31 @@ function isMeteredConnection(): boolean {
 	return false;
 }
 
+function shouldCacheFile(url: string): boolean {
+	// Extract file extension from URL
+	const pathname = new URL(url).pathname.toLowerCase();
+	const extension = pathname.split('.').pop() || '';
+	
+	// Define file extensions that should NOT be cached
+	// Add more as needed, though the followings are intentionally included:
+	// - svg (essential for navigation icons)
+	// - pdf (members' CVs and resumes)
+	const excludedExtensions = new Set([
+		// Image formats
+		'jpg', 'jpeg', 'png', 'gif', 'webp', 'avif', 'ico', 'bmp', 'tiff', 'tif',
+		// Video formats
+		'mp4', 'avi', 'mov', 'wmv', 'flv', 'webm', 'mkv', 'm4v',
+		// Audio formats
+		'mp3', 'wav', 'ogg', 'aac', 'flac', 'm4a',
+		// Binary archives and compressed files
+		'zip', 'rar', '7z', 'tar', 'gz', 'gzip', 'bz2', 'xz', 'br', 'lz4', 'zst',
+		// Other binary formats, just in case
+		'doc', 'docx', 'xls', 'xlsx', 'ppt', 'pptx'
+	]);
+	
+	return !excludedExtensions.has(extension);
+}
+
 sw.addEventListener('install', (event) => {
 	// Create a new cache and add all files to it
 	async function addFilesToCache() {
@@ -39,7 +64,9 @@ sw.addEventListener('install', (event) => {
 		}
 		
 		const cache = await caches.open(CACHE);
-		await cache.addAll(ASSETS);
+		// Filter out media files and binary archives before caching
+		const cachableAssets = ASSETS.filter(asset => shouldCacheFile(asset));
+		await cache.addAll(cachableAssets);
 	}
 
 	event.waitUntil(addFilesToCache());
@@ -82,7 +109,7 @@ sw.addEventListener('fetch', (event) => {
 			if (!(response instanceof Response)) {
 				throw new Error('invalid response from fetch');
 			}
-            // update cache upon successful responses
+            // cache all successful responses - browser will manage storage automatically
 			if (response.status === 200) {
 				cache.put(event.request, response.clone());
 			}
