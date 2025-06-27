@@ -32,7 +32,7 @@ function isMeteredConnection(): boolean {
 
 function shouldCacheFile(url: string): boolean {
 	// Extract file extension from URL
-	const pathname = new URL(url).pathname.toLowerCase();
+	const pathname = url.toLowerCase();
 	const extension = pathname.split('.').pop() || '';
 	
 	// Define file extensions that should NOT be cached
