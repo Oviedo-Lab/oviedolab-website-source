@@ -33,8 +33,10 @@
 		if (!event.currentTarget) return;
 
 		const target = event.currentTarget as HTMLElement;
-		const pTagDivWrapper = target.querySelector('div');
-		const badgeTag = target.querySelector('.showmorebadge');
+		const targetParent = target.parentElement;
+		const pTagDivWrapper = targetParent?.querySelector('[data-content]');
+		const badgeTag = targetParent?.querySelector('.showmorebadge');
+		const badgeSRSpan = targetParent?.querySelector('.showmorebadge span');
 		if (pTagDivWrapper) {
 			pTagDivWrapper.classList.toggle('line-clamp-none');
 			pTagDivWrapper.classList.toggle('pointer-events-auto');
@@ -43,6 +45,11 @@
 				badgeTag.textContent = pTagDivWrapper.classList.contains('line-clamp-none')
 					? 'Show less'
 					: 'Show more';
+			}
+			if (badgeSRSpan) {
+				badgeSRSpan.textContent = pTagDivWrapper.classList.contains('line-clamp-none')
+					? 'Click to show less'
+					: 'Click to show more';
 			}
 		}
 	}
@@ -102,7 +109,7 @@
 									<div class="flex w-full flex-col items-end justify-between align-top">
 										{#if publication.isReviewArticle}
 											<Badge
-												variant="outline"
+												variant="secondary"
 												class="mr-2 sm:mr-1 md:mr-0 bg-[#e2d994] hover:bg-[#cdc586] px-2 text-xs dark:bg-[#cdc586] dark:hover:bg-[#e2d994] dark:text-stone-900"
 											>
 												Review Article
@@ -112,6 +119,15 @@
 											<Badge variant="destructive" class="mr-2 sm:mr-1 md:mr-0 px-2 text-xs">
 												Preprint
 												<span class="sr-only">Preprint</span>
+											</Badge>
+											
+										{:else if publication.isSciComms}
+											<Badge
+												variant="secondary"
+												class="mr-2 sm:mr-1 md:mr-0 bg-[#f8c4a6] hover:bg-[#e9b495] px-2 text-xs dark:bg-[#d8aa8f] dark:hover:bg-[#c09278] dark:text-stone-900"
+											>
+												Sci-Comms
+												<span class="sr-only">Sci-Comms</span>
 											</Badge>
 										{:else}
 											<Badge
@@ -131,12 +147,10 @@
 										</Card.Header>
 									</div>
 									<Card.Content class="grid gap-4">
-										<button
-											type="button"
-											class="pointer-events-none space-y-1 mb-1"
-											on:click={toggleLineClamp}
+										<div
+											class="space-y-1 mb-1"
 										>
-											<div class="pointer-events-auto mb-2 line-clamp-4 cursor-text text-left">
+											<div data-content class="mb-2 line-clamp-4 cursor-text text-left space-y-1">
 												<!-- There can be multiple abstract parts, and when there is more than one, the abstract part heading is indexed in publications.abstractHeadings -->
 												{#if publication.abstract.length <= 1}
 													<p class="text-sm text-foreground">
@@ -144,14 +158,16 @@
 													</p>
 												{:else}
 													{#each publication.abstract as abstractPart, index}
-														{#if index > 0}
-															<p class="text-md text-foreground font-medium mt-3">
-																{publication.abstractHeadings[index] || ""}
-															</p>
-														{:else}
-															<p class="text-md text-foreground font-medium">
-																{publication.abstractHeadings[index] || ""}
-															</p>
+														{#if publication.abstractHeadings[index]}
+															{#if index > 0}
+																<p class="text-md text-foreground font-medium !mt-3">
+																	{publication.abstractHeadings[index] || ""}
+																</p>
+															{:else}
+																<p class="text-md text-foreground font-medium">
+																	{publication.abstractHeadings[index] || ""}
+																</p>
+															{/if}
 														{/if}
 														<p class="text-sm text-foreground">
 															{abstractPart}
@@ -159,16 +175,18 @@
 													{/each}
 												{/if}
 											</div>
-											<Badge
+											<Button
+												type="button"
 												variant="outline"
-												class="showmorebadge pointer-events-auto w-full cursor-pointer justify-center rounded-md align-middle text-xs"
+												class="showmorebadge w-full h-fit py-1 cursor-pointer justify-center rounded-md align-middle text-xs"												
+												on:click={toggleLineClamp}
 											>
 												Show more
 												<span class="sr-only">Click to show more</span>
-											</Badge>
-										</button>
+											</Button>
+										</div>
 	
-										<enhanced:img src={getFullPath(publication.thumbnail)} alt={publication.thumbnailSummary} class="w-full rounded-md object-cover object-center aspect-[1200/630] bg-muted" sizes="min(630px, 100vw)" />
+										<enhanced:img src={getFullPath(publication.thumbnail)} alt={publication.thumbnailSummary} class="w-full rounded-md object-cover object-center aspect-[1200/630] bg-muted" sizes="min(720px, 100vw)" />
 	
 									</Card.Content>
 									<Card.Footer class="w-full">
@@ -179,7 +197,12 @@
 											target="_blank"
 											rel="noopener noreferrer"
 										>
-											View Full Text <ExternalLink class="ml-2 h-4 w-4" />
+											{#if publication.isSciComms}
+												Read Article
+											{:else}
+												View Full Text
+											{/if}
+											<ExternalLink class="ml-2 h-4 w-4" />
 										</Button>
 									</Card.Footer>
 								</div>

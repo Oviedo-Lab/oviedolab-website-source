@@ -10,12 +10,16 @@
     import MoveUpLeft from 'lucide-svelte/icons/move-up-left';
 </script>
 
+<svelte:head>
+    <meta name="robots" content="noindex" />
+</svelte:head>
+
 <main>
     <div class="w-full min-h-screen flex flex-col items-center justify-center gap-6 text-center" style="min-height: calc(100vh - 4rem)">
         
 
         <!-- If the page is /team/* -->
-        {#if $page.url.pathname.startsWith('/team/')}
+        {#if $page.url.pathname.startsWith('/team/') && $page.status === 404}
             <!-- flex row for the h1 and icon -->
             <div class="flex flex-row items-center justify-center gap-4">
                 <h1 class="text-5xl font-bold text-foreground"><i>Oops!</i></h1>

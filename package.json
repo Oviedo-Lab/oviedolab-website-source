@@ -10,7 +10,7 @@
 		"check:watch": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json --watch",
 		"lint": "prettier --check . && eslint .",
 		"format": "prettier --write .",
-		"postbuild": "bunx svelte-sitemap --domain https://oviedolab.org --reset-time --trailing-slashes"
+		"postbuild": "bunx svelte-sitemap --domain https://oviedolab.org --reset-time --trailing-slashes --ignore '404.html'"
 	},
 	"devDependencies": {
 		"@aws-crypto/sha256-js": "^5.2.0",

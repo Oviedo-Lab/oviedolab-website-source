@@ -6,7 +6,7 @@
 	import { emojiCursor } from 'cursor-effects';
 	import type { CursorEffectResult } from 'cursor-effects';
 
-	import { toggleMode } from 'mode-watcher';
+	import { toggleMode, mode } from 'mode-watcher';
 	import Sun from 'lucide-svelte/icons/sun';
 	import Moon from 'lucide-svelte/icons/moon';
 
@@ -178,6 +178,13 @@
 		// Other eggs
 		gamepadEggs(window);
 	});
+
+
+	$: if ($mode === 'dark' && browser) {
+		document.querySelector('meta[name="theme-color"]')?.setAttribute('content', '#0c0a09');
+	} else if (browser) {
+		document.querySelector('meta[name="theme-color"]')?.setAttribute('content', '#f5f5f4');
+	}
 </script>
 
 <ModeWatcher />
