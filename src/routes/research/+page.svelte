@@ -72,7 +72,7 @@
 								<Carousel.Content>
 									<Carousel.Item>
 										<div class="w-full h-full flex flex-col items-center justify-center">
-											<enhanced:img src="$lib/assets/research/MERFISH/2024_ACxDevP18CBACAJ_LayersROI_01.png" alt="MERFISH Spatial Transcriptomics" class="w-full rounded-md object-cover object-center bg-stone-500 max-h-[45vh] max-w-[45vh] select-none" sizes="min(1920px, 90vw)" />
+											<enhanced:img src="$lib/assets/research/MERFISH/2024_ACxDevP18CBACAJ_LayersROI_01.png" alt="MERFISH Spatial Transcriptomics" class="w-full rounded-md object-cover object-center bg-stone-500 max-h-[45vh] max-w-[45vh] select-none" sizes="min(1920px, 90vw)" fetchpriority="high" />
 										</div>
 									</Carousel.Item>
 									
@@ -133,7 +133,7 @@
 								<Carousel.Content>
 									<Carousel.Item>
 										<div class="w-full h-full flex flex-col items-center justify-center">
-											<enhanced:img src="$lib/assets/research/CircuitMapping/2024_L6-circuit-mapping_01.png" alt="Cortical Layer 6 Circuit Mapping" class="w-full rounded-md object-cover object-center bg-stone-500 max-h-[45vh] max-w-[45vh] select-none" sizes="min(1920px, 90vw)" />
+											<enhanced:img src="$lib/assets/research/CircuitMapping/2024_L6-circuit-mapping_01.png" alt="Cortical Layer 6 Circuit Mapping" class="w-full rounded-md object-cover object-center bg-stone-500 max-h-[45vh] max-w-[45vh] select-none" sizes="min(1920px, 90vw)" fetchpriority="high" />
 										</div>
 									</Carousel.Item>
 	
@@ -173,7 +173,7 @@
 								<Carousel.Content>
 									<Carousel.Item>
 										<div class="w-full h-full flex flex-col items-center justify-center">
-											<enhanced:img src="$lib/assets/research/Physiology/2024_probe-recording_cartoon.png" alt="High-density silicon probe recording cartoon" class="w-full rounded-md object-cover object-center bg-stone-500 max-h-[45vh] max-w-[45vh] select-none" sizes="min(1920px, 90vw)" />
+											<enhanced:img src="$lib/assets/research/Physiology/2024_probe-recording_cartoon.png" alt="High-density silicon probe recording cartoon" class="w-full rounded-md object-cover object-center bg-stone-500 max-h-[45vh] max-w-[45vh] select-none" sizes="min(1920px, 90vw)" fetchpriority="high" />
 										</div>
 									</Carousel.Item>
 	

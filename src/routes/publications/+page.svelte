@@ -102,7 +102,7 @@
 					{year}
 				</h2>
 				<div class="flex flex-col items-center justify-start gap-6 sm:gap-10">
-					{#each publicationsYears[year] || {} as publication}
+					{#each publicationsYears[year] || {} as publication, i}
 						<article class="flex flex-col items-center justify-start">
 							<Card.Root class="w-[94%] pt-3 pb-2 sm:pb-3 md:pb-4 px-1 sm:px-2 md:px-3 sm:w-[34rem] md:w-[40rem] lg:w-[44rem]">
 								<div class="flex flex-col items-start">
@@ -186,7 +186,7 @@
 											</Button>
 										</div>
 	
-										<enhanced:img src={getFullPath(publication.thumbnail)} alt={publication.thumbnailSummary} class="w-full rounded-md object-cover object-center aspect-[1200/630] bg-muted" sizes="min(720px, 100vw)" />
+										<enhanced:img src={getFullPath(publication.thumbnail)} alt={publication.thumbnailSummary} class="w-full rounded-md object-cover object-center aspect-[1200/630] bg-muted" sizes="min(720px, 100vw)" fetchpriority={(i<3)? "high" : "auto"} />
 	
 									</Card.Content>
 									<Card.Footer class="w-full">
