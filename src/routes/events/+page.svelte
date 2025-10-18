@@ -27,7 +27,7 @@
 	const masonryImages = data.imagesSorted as MasonryItem[];
 	$: masonryItems = masonryImages;
 
-	let [masonryMinColWidth, masonryMaxColWidth, masonryGap] = [360, 1200, 16];
+	let [masonryMinColWidth, masonryMaxColWidth, masonryGap] = [400, 1280, 16];
 	let masonryWidth: number, masonryHeight: number;
 
 	function correctMasonryHeight() {
