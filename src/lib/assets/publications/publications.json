@@ -3,6 +3,28 @@
 
     "publications": [
         {
+            "title": "Non-canonical role of DNA mismatch repair on sensory processing in mice",
+            "authors": [
+                "Sadia N. Rahman",
+                "Demetrios Neophytou",
+                "Siboney Oviedo-Gray",
+                "Bao Q. Vuong",
+                "Hysell V. Oviedo"
+            ],
+            "abstract": [
+                "DNA repair mechanisms are essential for cellular development and function. In post-mitotic neurons, deficiencies in DNA damage response proteins can lead to severe neurodegenerative and neurodevelopmental disorders. One highly conserved factor involved in DNA repair is MutS Homolog 2 (Msh2), which is responsible for correcting base–base mismatches and insertion/deletion loops during cell proliferation. However, its role in mature neurons remains poorly understood. This study investigates the impact of Msh2 loss on sensory processing in mice. Using electrophysiological and molecular assays, we identified significant deficits in cortical and thalamic sound processing in Msh2ᐨᐟᐨ mice. These deficits were linked to dysfunction of the thalamic reticular nucleus (TRN), which critically regulates corticothalamic and thalamocortical activity. Our findings revealed increased oxidative damage, aberrant neuronal activity, and elevated parvalbumin (PV) expression in PV⁺ neurons in the TRN of Msh2ᐨᐟᐨ mice. Additionally, we observed the presence of connexin plaques, indicating that disrupted gap junction formation may contribute to impaired TRN function. These results highlight Msh2′s crucial role in supporting PV⁺ neurons in the TRN, profoundly influencing sensory processing. This study provides new insight into how DNA repair mechanisms regulate neuronal development and function in a region-specific manner, potentially contributing to our understanding of their role in neurological disorders."
+            ],
+            "abstractHeadings": [],
+            "yyyymmdd": "20260216",
+            "doi": "https://doi.org/10.1016/j.neuroscience.2025.12.066",
+            "journal": "Neuroscience",
+            "url": "https://www.sciencedirect.com/science/article/pii/S0306452225012333",
+            "isPreprint": false,
+            "isReviewArticle": false,
+            "thumbnail": "/src/lib/assets/publications/SadiaRahman2026/SadiaRahman2026-thumbnail.png",
+            "thumbnailSummary": "Figure 1 from the paper shows diminished auditory function in the ACx of Msh2(-/-) mice."
+        },
+        {
             "title": "Your left and right brain hear language differently − a neuroscientist explains how",
             "authors": [
                 "Hysell V. Oviedo "
@@ -67,28 +89,6 @@
             "isReviewArticle": false,
             "thumbnail": "/src/lib/assets/publications/AshlanReid2025/AshlanReid2025-thumbnail.jpg",
             "thumbnailSummary": "Figure 1 from the paper shows differences in thalamocortical input maturation between the left and right auditory cortex (ACx) across developmental stages, using bilateral slice preparation and voltage-sensitive dye imaging."
-        },
-        {
-            "title": "Non-Canonical Role of DNA Mismatch Repair on Sensory Processing in Mice",
-            "authors": [
-                "Sadia N. Rahman",
-                "Demetrios Neophytou",
-                "Siboney Oviedo-Gray",
-                "Bao Q. Vuong",
-                "Hysell V. Oviedo"
-            ],
-            "abstract": [
-                "DNA repair mechanisms are essential for cellular development and function. This is particularly true in post-mitotic neurons, where deficiencies in DNA damage response proteins can result in severe neurodegenerative and neurodevelopmental disorders. One highly conserved factor involved in DNA repair is Mut-S Homolog 2 (Msh2), which is responsible for correcting base- base mismatches and insertion/deletion loops during cell proliferation. However, its role in mature neuronal function remains poorly understood. This study investigates the impact of Msh2 loss on sensory processing in a mouse model. Using electrophysiological and molecular assays, we identified significant deficits in cortical and thalamic sound processing in Msh2ᐨᐟᐨ mice. These deficits were linked to dysfunction of the thalamic reticular nucleus (TRN), a brain region that critically regulates corticothalamic and thalamocortical activity. Our findings revealed increased oxidative damage, aberrant neuronal activity, and elevated parvalbumin (PV) expression in PVᐩ interneurons in the TRN of Msh2ᐨᐟᐨ mice. Additionally, we observed the presence of connexin plaques, indicating that disrupted gap junction formation may contribute to impaired TRN function. These results underscore the critical role of Msh2 in supporting the functionality of PVᐩ interneurons in the TRN, thereby profoundly influencing sensory processing pathways. This study provides new insights into the importance of DNA repair mechanisms in neuronal development and function, potentially contributing to our understanding of their role in neurological disorders."    
-            ],
-            "abstractHeadings": [],
-            "yyyymmdd": "20250217",
-            "doi": "10.1101/2025.02.13.638164",
-            "journal": "bioRxiv",
-            "url": "https://www.biorxiv.org/content/10.1101/2025.02.13.638164v1.full.pdf+html",
-            "isPreprint": true,
-            "isReviewArticle": false,
-            "thumbnail": "/src/lib/assets/publications/SadiaRahman2025/SadiaRahman2025-thumbnail.png",
-            "thumbnailSummary": "Figure 1 from the paper shows diminished auditory function in the ACx of Msh2(-/-) mice."
         },
         {
             "title": "Differences in temporal processing speeds between the right and left auditory cortex reflect the strength of recurrent synaptic connectivity",
