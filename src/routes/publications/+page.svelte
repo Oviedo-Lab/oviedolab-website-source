@@ -2,31 +2,45 @@
 	import { Button } from '$lib/components/ui/button/index.js';
 	import { Badge } from '$lib/components/ui/badge';
 	import * as Card from '$lib/components/ui/card/index.js';
-	import * as Dialog from '$lib/components/ui/dialog';
-	import Skeleton from '$lib/components/ui/skeleton/skeleton.svelte';
 	import * as Tooltip from '$lib/components/ui/tooltip';
+	
+	import {
+		ExternalLink,
+	} from "@lucide/svelte/icons";
 
-	import BrandIcon from '@/components/svg-icons/brand-icon.svelte';
-	import ExternalLink from 'lucide-svelte/icons/external-link';
-	import { get } from 'svelte/store';
-	import { browser } from '$app/environment';
-	import { onMount } from 'svelte';
+    import { RenderIcon } from "$lib/components/ui/simple-icons/simple-icons.svelte";
 
-	export let data;
+	let { data } = $props();
 
-	const publicationsYears = data.publications;
-	const yearsSorted = data.yearsSorted;
+	const publicationsYears = $derived(data.publications);
+	const yearsSorted = $derived(data.yearsSorted);
+
+	const publicationContentModules = import.meta.glob(
+    [
+        "$content/publications/**/*.{svx,md}",
+        "!$content/publications/**/README*", // ignore any README files
+        "!$content/publications/**/_template/**", // ignore any _template folder
+    ],
+    { eager: true },
+) as Record<string, { default: any }>;
 
 	const images: any = import.meta.glob(
-		['$lib/assets/publications/**/*.{avif,gif,heif,jpeg,jpg,png,tiff,webp}'],
+		['$content/publications/**/*.{avif,gif,heif,jpeg,jpg,png,tiff,webp}'],
 		{
 			eager: true,
-			query: { enhanced: true }
+			query: {
+				enhanced: true,
+				w: '320;480;630;1200',
+			}
 		}
 	);
 
 	export function getFullPath(path: string) {
 		return images[path].default;
+	}
+
+	function getAbstractComponent(path: string) {
+		return publicationContentModules[path]?.default;
 	}
 
 	function toggleLineClamp(event: MouseEvent) {
@@ -85,8 +99,8 @@
 </svelte:head>
 
 
-<main class="flex min-h-[100vh] flex-col items-center justify-start pt-10 sm:pt-10">
-	<h1 class="gap-6 text-center text-4xl font-bold text-foreground">Publications</h1>
+<main class="flex h-full flex-col items-center justify-start pt-10 sm:pt-10">
+	<h1 class="text-center text-4xl font-bold text-foreground">Publications</h1>
 
 	<!-- group of sections by year -->
 	<!-- as a grid of 2 columns, first column is the year taking up 4rem, second column is the publications  -->
@@ -139,7 +153,11 @@
 											</Badge>
 										{/if}
 										<Card.Header class="flex-1 pt-1 w-full">
-											<Card.Title class="text-xl text-left scroll-mt-28" id={publication.title.toLowerCase().replace(/\s/g, '-')}>{publication.title}</Card.Title>
+											<Card.Title class="text-xl text-left">
+												<h1 id={publication.title.toLowerCase().replace(/\s/g, '-')} class="scroll-mt-28">
+													{publication.title}
+												</h1>
+											</Card.Title>
 											<Card.Description>
 												<p class="text-left">{publication.authors.join(', ')}</p>
 												<p class="text-right font-medium mt-2">{publication.journal}</p>
@@ -148,50 +166,39 @@
 									</div>
 									<Card.Content class="grid gap-4">
 										<div
-											class="space-y-1 mb-1"
+											class="space-y-1"
 										>
 											<div data-content class="mb-2 line-clamp-4 cursor-text text-left space-y-1">
-												<!-- There can be multiple abstract parts, and when there is more than one, the abstract part heading is indexed in publications.abstractHeadings -->
-												{#if publication.abstract.length <= 1}
-													<p class="text-sm text-foreground">
-														{publication.abstract}
-													</p>
+												{#if getAbstractComponent(publication.contentPath)}
+													{@const Component = getAbstractComponent(publication.contentPath)}
+													<div class="mt-2 abstract-content">
+														<Component />
+													</div>
 												{:else}
-													{#each publication.abstract as abstractPart, index}
-														{#if publication.abstractHeadings[index]}
-															{#if index > 0}
-																<p class="text-md text-foreground font-medium !mt-3">
-																	{publication.abstractHeadings[index] || ""}
-																</p>
-															{:else}
-																<p class="text-md text-foreground font-medium">
-																	{publication.abstractHeadings[index] || ""}
-																</p>
-															{/if}
-														{/if}
-														<p class="text-sm text-foreground">
-															{abstractPart}
-														</p>
-													{/each}
+													<div class="mt-2 abstract-content">
+														<p>Abstract unavailable.</p>
+													</div>
 												{/if}
 											</div>
 											<Button
 												type="button"
 												variant="outline"
 												class="showmorebadge w-full h-fit py-1 cursor-pointer justify-center rounded-md align-middle text-xs"												
-												on:click={toggleLineClamp}
+												onclick={toggleLineClamp}
 											>
 												Show more
 												<span class="sr-only">Click to show more</span>
 											</Button>
 										</div>
-	
-										<enhanced:img src={getFullPath(publication.thumbnail)} alt={publication.thumbnailSummary} class="w-full rounded-md object-cover object-center aspect-[1200/630] bg-muted" sizes="min(720px, 100vw)" fetchpriority={(i<3)? "high" : "auto"} />
+										{#if publication.thumbnail}
+											<!-- Add a link preload for the first 3 images -->
+											<enhanced:img src={getFullPath(publication.thumbnail)} alt={publication.thumbnailSummary || 'Figure from paper'} class="w-full rounded-md object-cover object-center aspect-1200/630 bg-muted" sizes="(max-width: 480px) 320px, (max-width: 768px) 480px, (max-width: 1920px) 630px, 100vw" fetchpriority={(i<3)? "high" : "low"} loading={(i<5)? "eager" : "lazy"} />
+										{/if}
 	
 									</Card.Content>
-									<Card.Footer class="w-full">
+									<Card.Footer class="w-full my-5">
 										<Button
-											class="w-full bg-stone-800 text-stone-50 hover:bg-stone-900 dark:bg-stone-300 dark:text-stone-950 hover:dark:bg-stone-200"
+											class="text font-medium w-full bg-stone-800 text-stone-50 hover:bg-stone-900 dark:bg-stone-300 dark:text-stone-950 hover:dark:bg-stone-200"
 											variant="secondary"
 											href={publication.url}
 											target="_blank"
@@ -226,8 +233,10 @@
 
 			<div class="flex justify-around items-center gap-2">
 				<Tooltip.Root>
-					<Tooltip.Trigger aria-label="Google Scholar">
-						<BrandIcon name="googleScholar" class="h-5 w-5 fill-current sm:h-7 sm:w-7 opacity-80" />
+					<Tooltip.Trigger aria-label="Google Scholar" class="p-2">
+						<svelte:boundary>
+							{@render RenderIcon({ name: "googleScholar", class: "h-5 w-5 fill-current sm:h-7 sm:w-7 opacity-80" })}
+						</svelte:boundary>
 					</Tooltip.Trigger>
 					<Tooltip.Content>
 						<p>Google Scholar</p>
@@ -238,3 +247,19 @@
 		</a>
 	</div>
 </main>
+
+<style lang="postcss">
+	@reference "$src/app.css";
+	.abstract-content {
+		:global(p) {
+			@apply mt-1 sm:mt-1.5 first:mt-0 text-sm lg:text-base text-foreground;
+		}
+		:global(h1, h2, h3, h4, h5, h6) {
+			@apply font-semibold mt-2 text-base;
+			:global(a) {
+				@apply hidden;
+			}
+		}
+	}
+
+</style>

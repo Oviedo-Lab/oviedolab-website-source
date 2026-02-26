@@ -1,12 +1,17 @@
-import teamData from '$lib/assets/team/team.json';
+import teamData from '$content/team/team.json';
+import { type SimpleIconNames } from '$src/lib/components/ui/simple-icons/simple-icons.svelte';
 
-import ExternalLink from 'lucide-svelte/icons/external-link';
-import Globe from 'lucide-svelte/icons/globe';
-import Mail from 'lucide-svelte/icons/mail';
+import type { Component } from 'svelte';
+
+import {
+    Globe,
+    Mail,
+    type IconProps,
+} from "@lucide/svelte/icons";
 
 // Default and Schematic skeleton for the external links
-const predefinedExternalLinks = [
-    // icon name from the keys defined in components/svg-icons/brand-icon.svelte, plus 'website' and 'email'
+const predefinedExternalLinks: ExternalLinkData[] = [
+    // icon name from typed SimpleIconNames, plus 'website' and 'email'
     {
         type: 'website', // will be used to determine the icon
         title: 'Website', // will be used as the link text for ToolTip
@@ -100,6 +105,7 @@ export interface ExternalLinkData {
     type: "website" | "email" | "github" | "googleScholar" | "orcid" | "linkedin" | "x" | "discord" | "facebook" | "instagram" | "soundcloud" | "tiktok" | "vimeo" | "youtube";
     title: string;
     url: string;
+    icon: SimpleIconNames | Component<IconProps, {}, "">;
 }
 
 export interface TeamMember {
@@ -185,7 +191,7 @@ export function load(): { team: TeamMember[] } {
 
     // Remove members with name of empty string
     teamData.team = teamData.team.filter(member => member.name);
-    
+
     return {
         team: teamData.team as TeamMember[]
     };

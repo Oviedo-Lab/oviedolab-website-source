@@ -1,12 +1,5 @@
 <script lang="ts">
-	import ExternalLink from 'lucide-svelte/icons/external-link';
-
-	import { Button } from '$lib/components/ui/button/index.js';
 	import * as Card from "$lib/components/ui/card/index.js";
-
-	import BrainImage from '$lib/assets/openings/BrainImage.png';
-
-	import { browser } from '$app/environment';
 </script>
 
 
@@ -39,24 +32,28 @@
 </svelte:head>
 
 
-<main class="flex min-h-[100vh] flex-col items-center justify-start pt-10 sm:pt-10">
-	<h1 class="gap-6 text-center text-4xl font-bold text-foreground">Openings</h1>
+<main class="flex h-full flex-col items-center justify-start pt-10 sm:pt-10">
+	<h1 class="text-center text-4xl font-bold text-foreground">Openings</h1>
 
 	<!-- Openings Section -->
 	<section class="relative isolate w-full flex flex-col items-center justify-center mt-10 sm:mt-12">
 		<!-- Background Image -->
-		<div class="absolute w-full h-full top-0 left-0 overflow-clip flex items-center justify-center -z-10 bg-stone-600">
-			<enhanced:img src="$lib/assets/openings/NRB_photo.jpg" alt="WashU Neuroscience Research Building" class="w-full scale-[3] md:scale-[2] object-cover object-center bg-no-repeat bg-center bg-fill blur-sm brightness-[0.4] select-none pointer-events-none" fetchpriority="high" loading="eager" />
+		<div class="absolute w-full h-full min-h-120! top-0 left-0 overflow-clip flex items-center justify-center -z-10 bg-stone-600">
+			<enhanced:img src="$lib/assets/openings/NRB_photo.jpg" alt="WashU Neuroscience Research Building" class="w-full h-full scale-[3] md:scale-[2] object-cover object-center bg-no-repeat bg-center bg-fill blur-sm brightness-[0.85] dark:brightness-[0.4] select-none pointer-events-none" fetchpriority="high" loading="eager" />
 		</div>
 
 		<!-- Section Content -->
-		<div class="max-w-full w-[95%] py-10 flex flex-col items-center justify-start gap-6 sm:flex-row sm:flex-wrap sm:gap-8 sm:justify-center sm:items-stretch">
-			<Card.Root class="flex flex-col items-center justify-start w-full max-w-[85%] flex-grow sm:max-w-md md:max-w-sm bg-background/85 shadow-lg">
-				<Card.Header>
-					<div class="w-full h-full mx-auto mb-4 max-w-[8rem] max-h-[8rem] md:max-w-[9rem] md:max-h-[9rem] flex flex-col items-center justify-center rounded-full">
+		<div class="max-w-full w-[95%] min-h-120! py-10 flex flex-col items-center justify-start gap-6 sm:flex-row sm:flex-wrap sm:gap-8 sm:justify-center sm:items-stretch">
+			<Card.Root class="flex flex-col items-center justify-start w-full max-w-[85%] grow sm:max-w-md md:max-w-sm bg-background/90 dark:bg-background/85 shadow-lg">
+				<Card.Header class="w-full">
+					<div class="mx-auto size-32 md:size-36 flex flex-col items-center justify-center rounded-full">
 						<enhanced:img src="$lib/assets/openings/BrainImage.png" alt="Brain icon" class="w-full h-full rounded-full object-cover object-center aspect-square bg-muted max-h-xs max-w-xs md:max-h-sm md:max-w-sm select-none" sizes="min(1920px, 50vw)" />
 					</div>
-					<Card.Title tag="h2" class="mx-auto text-center text-2xl font-bold text-foreground md: text:3xl">Postdoctoral Researcher</Card.Title>
+					<Card.Title>
+                        <h2 class="mt-2 mx-auto text-center text-2xl! font-bold text-foreground md:text-3xl">
+                        Postdoctoral Researcher
+                        </h2>
+                    </Card.Title>
 					<!-- <Card.Description class="mx-auto text-center text-sm text-foreground md: text-md"></Card.Description> -->
 				</Card.Header>
 				<Card.Content class="w-full h-full pb-10">
@@ -67,12 +64,16 @@
 				<!-- <Card.Footer></Card.Footer> -->
 			</Card.Root>
 	
-			<Card.Root class="flex flex-col items-center justify-start w-full max-w-[85%] flex-grow sm:max-w-md md:max-w-sm bg-background/85 shadow-lg">
-				<Card.Header>
-					<div class="w-full h-full mx-auto mb-4 max-w-[8rem] max-h-[8rem] md:max-w-[9rem] md:max-h-[9rem] flex flex-col items-center justify-center rounded-full">
+			<Card.Root class="flex flex-col items-center justify-start w-full max-w-[85%] grow sm:max-w-md md:max-w-sm bg-background/90 dark:bg-background/85 shadow-lg">
+				<Card.Header class="w-full">
+					<div class="mx-auto size-32 md:size-36 flex flex-col items-center justify-center rounded-full">
 						<enhanced:img src="$lib/assets/openings/BrainImage.png" alt="Brain icon" class="w-full h-full rounded-full object-cover object-center aspect-square bg-muted max-h-xs max-w-xs md:max-h-sm md:max-w-sm select-none" sizes="min(1920px, 50vw)" />
 					</div>
-					<Card.Title tag="h2" class="mx-auto text-center text-2xl font-bold text-foreground md: text:3xl">Graduate Student</Card.Title>
+                    <Card.Title>
+                        <h2 class="mt-2 mx-auto text-center text-2xl! font-bold text-foreground md:text-3xl">
+                        Graduate Student
+                        </h2>
+                    </Card.Title>
 					<!-- <Card.Description class="mx-auto text-center text-sm text-foreground md: text-md"></Card.Description> -->
 				</Card.Header>
 				<Card.Content class="w-full h-full pb-10">
@@ -83,12 +84,16 @@
 				<!-- <Card.Footer></Card.Footer> -->
 			</Card.Root>
 	
-			<Card.Root class="flex flex-col items-center justify-start w-full max-w-[85%] flex-grow sm:max-w-md md:max-w-sm bg-background/85 shadow-lg">
-				<Card.Header>
-					<div class="w-full h-full mx-auto mb-4 max-w-[8rem] max-h-[8rem] md:max-w-[9rem] md:max-h-[9rem] flex flex-col items-center justify-center rounded-full">
+			<Card.Root class="flex flex-col items-center justify-start w-full max-w-[85%] grow sm:max-w-md md:max-w-sm bg-background/90 dark:bg-background/85 shadow-lg">
+				<Card.Header class="w-full">
+					<div class="mx-auto size-32 md:size-36 flex flex-col items-center justify-center rounded-full">
 						<enhanced:img src="$lib/assets/openings/BrainImage.png" alt="Brain icon" class="w-full h-full rounded-full object-cover object-center aspect-square bg-muted max-h-xs max-w-xs md:max-h-sm md:max-w-sm select-none" sizes="min(1920px, 50vw)" />
 					</div>
-					<Card.Title tag="h2" class="mx-auto text-center text-2xl font-bold text-foreground md: text:3xl">Research Assistant</Card.Title>
+                    <Card.Title>
+                        <h2 class="mt-2 mx-auto text-center text-2xl! font-bold text-foreground md:text-3xl">
+                        Research Assistant
+                        </h2>
+                    </Card.Title>
 					<!-- <Card.Description class="mx-auto text-center text-sm text-foreground md: text-md"></Card.Description> -->
 				</Card.Header>
 				<Card.Content class="w-full h-full pb-10">
@@ -134,10 +139,8 @@
 	<section class="w-full flex flex-col items-center justify-center gap-6 py-12 sm:py-20">
 		<h2 class="text-center text-4xl font-bold text-foreground">Lab Location</h2>
 
-		<div class="w-[90%] h-[35vh] min-h-[30rem] md:h-[50vh] my-4 flex flex-col items-center justify-center gap-6 sm:gap-10 rounded-md">
+		<div class="w-[90%] h-[35vh] min-h-120 md:h-[50vh] my-4 flex flex-col items-center justify-center gap-6 sm:gap-10 rounded-md">
 			<iframe title="Oviedo Lab location - WashU Neuroscience Research Building" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3116.563651663377!2d-90.25783572316011!3d38.63591817178092!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x87d8b59e2ca60fbb%3A0xaaf0bff54b1d53be!2sWashU%20Neuroscience%20Building!5e0!3m2!1sen!2sus!4v1727816147257!5m2!1sen!2sus" width="100%" height="100%" style="border:0;" allowfullscreen loading="lazy"referrerpolicy="no-referrer-when-downgrade" class="rounded-md"></iframe>
 		</div>
-
-
 	</section>
 </main>

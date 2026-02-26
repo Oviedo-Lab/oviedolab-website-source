@@ -1,32 +1,13 @@
 <script lang="ts">
 	import * as Avatar from "$lib/components/ui/avatar";
 	import { Button } from '$lib/components/ui/button/index.js';
-	import { Badge } from '$lib/components/ui/badge';
-	import * as Card from '$lib/components/ui/card/index.js';
-	import * as Dialog from '$lib/components/ui/dialog';
 	import { Separator } from "$lib/components/ui/separator";
-	import Skeleton from '$lib/components/ui/skeleton/skeleton.svelte';
+	import { page } from "$app/state";
 
-	import ExternalLink from 'lucide-svelte/icons/external-link';
-
-	import BrandIcon from '$lib/components/svg-icons/brand-icon.svelte';
-
-	import { get } from 'svelte/store';
-	import { browser } from '$app/environment';
-	import { onMount } from 'svelte';
-
-	export let data;
+	let { data } = $props();
 
 	const images: any = import.meta.glob(
-		['$lib/assets/team/**/*.{avif,gif,heif,jpeg,jpg,png,tiff,webp}'],
-		{
-			eager: true,
-			query: { enhanced: true }
-		}
-	);
-
-	const CVs: any = import.meta.glob(
-		['$lib/assets/team/**/*.{pdf,docx,doc,ppt,pptx,xls,xlsx,zip}'],
+		['$content/team/**/*.{avif,gif,heif,jpeg,jpg,png,tiff,webp}'],
 		{
 			eager: true,
 			query: { enhanced: true }
@@ -42,16 +23,12 @@
         if (path.startsWith('http://') || path.startsWith('https://')) {
             return path;
         }
-
         // if path is undefined, return the default path
         if (!images[path]) {
             return "##";
         }
 
 		return images[path].default || "";
-	}
-	export function getFullCVPath(path: string) {
-		return CVs[path].default || "";
 	}
 
 </script>
@@ -86,7 +63,7 @@
 </svelte:head>
 
 
-<main class="flex min-h-[100vh] flex-col items-center justify-start pt-10 pb-11 sm:pt-10 sm:pb-11 gap-6 sm:gap-10">
+<main class="flex flex-col items-center justify-start pt-10 pb-11 sm:pt-10 sm:pb-11 gap-6 sm:gap-10">
 	<h1 class="sr-only">Lab's Members</h1>
 	
 	<!-- Current team members -->
@@ -100,9 +77,9 @@
 			{#each data.team as member}
 				{#if !member.isAlumni}
 
-				<Button variant="outline" class="w-fit h-fit max-w-full rounded-lg bg-muted/40" href={member.name.replace(/\s/g, '')}>
+				<Button variant="outline" class="w-fit h-fit max-w-full rounded-lg bg-muted/40" href={`${page.route.id}/${member.name.replace(/\s/g, '')}`}>
 					<div class="flex flex-col items-center justify-start gap-2 px-1 h-fit w-[24rem] max-w-[99vw]" role="button">
-						<Avatar.Root class="w-[11rem] h-[11rem] rounded-full mt-2 sm:mt-4 sm:w-[13rem] sm:h-[13rem] md:w-[13rem] md:h-[13rem] lg:w-[14rem] lg:h-[14rem]">
+						<Avatar.Root class="size-44 rounded-full mt-2 sm:mt-4 sm:size-52 md:size-52 lg:size-56">
 							<!-- Validate that the image exists and the return type from fullImagePath is a string !="##" -->
 							{#if member.images.length === 0}
 								<Avatar.Fallback class="text-foreground text-lg sm:text-xl md:text-2xl lg:text-3xl">{member.initials}</Avatar.Fallback>
@@ -143,7 +120,7 @@
 		<div class="max-w-full w-[92%] sm:w-[85%] pt-3 pb-5 flex flex-col items-center justify-start gap-6 sm:flex-row sm:flex-wrap sm:gap-8 sm:justify-center">
 			{#each data.team as member}
 				{#if member.isAlumni}
-				<Button variant="outline" class="w-fit h-fit max-w-full rounded-lg" href={member.name.replace(/\s/g, '')}>
+				<Button variant="outline" class="w-fit h-fit max-w-full rounded-lg" href={`${page.route.id}/${member.name.replace(/\s/g, '')}`}>
 					<div class="flex flex-col items-start justify-center gap-1 max-w-full">
 						<h3 class="text-ellipsis whitespace-nowrap overflow-hidden max-w-full text-xl font-bold text-foreground mx-auto text-center mt-2 sm:mt-2 md:text-xl lg:text-2xl">{member.name}</h3>
 						<p class="text-ellipsis whitespace-nowrap overflow-hidden text-sm text-foreground mx-auto text-center mb-1 sm:mb-4 md:text-md lg:text-lg">{member.title}</p>

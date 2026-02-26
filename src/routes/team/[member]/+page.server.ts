@@ -1,6 +1,5 @@
-import teamData from '$lib/assets/team/team.json';
+import teamData from '$content/team/team.json';
 import { error } from '@sveltejs/kit';
-import BrandIcon from '$lib/components/svg-icons/brand-icon.svelte';
 import type { TeamMember } from '../+page.server';
 
 export function load({ params }) {

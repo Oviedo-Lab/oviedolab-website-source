@@ -1,12 +1,7 @@
 <script lang="ts">
-	import Images from 'lucide-svelte/icons/images';
-	import CalendarFold from 'lucide-svelte/icons/calendar-fold';
+	import { Images, CalendarFold } from "@lucide/svelte/icons";
 
-	import * as Avatar from "$lib/components/ui/avatar";
-	import { Button } from '$lib/components/ui/button/index.js';
-	import { type CarouselAPI } from "$lib/components/ui/carousel/context.js";
 	import * as Carousel from "$lib/components/ui/carousel/index.js";
-	import { Separator } from "$lib/components/ui/separator";
 	import Skeleton from '$lib/components/ui/skeleton/skeleton.svelte';
 	import * as Tabs from "$lib/components/ui/tabs";
 
@@ -23,12 +18,14 @@
 		alt: string;
 	}
 
-	export let data;
-	const masonryImages = data.imagesSorted as MasonryItem[];
-	$: masonryItems = masonryImages;
+	let { data } = $props();
+
+	const masonryImages: MasonryItem[] = $derived(data.imagesSorted);
+	let masonryItems = $derived(masonryImages);
 
 	let [masonryMinColWidth, masonryMaxColWidth, masonryGap] = [400, 1280, 16];
-	let masonryWidth: number, masonryHeight: number;
+	// let masonryWidth: number, masonryHeight: number;
+	let masonryWidth: number = $state(0), masonryHeight: number = $state(0);
 
 	function correctMasonryHeight() {
 		const eventGalleryContainer = document.querySelector('#event-gallery') as HTMLElement;
@@ -129,17 +126,17 @@
 </svelte:head>
 
 
-<main class="flex min-h-[100vh] flex-col items-center justify-start">
+<main class="flex h-full flex-col items-center justify-start">
 	<h1 class="sr-only">Lab Events</h1>
 
 	<!-- Change the value of Root.value to change the default active tab -->
-	<Tabs.Root value="gallery" class="w-full h-full min-h-[100vh] flex-grow flex flex-col items-center justify-start gap-6 pt-6 sm:pt-10 bg-stone dark:bg-stone-900">
+	<Tabs.Root value="gallery" class="w-full h-full grow flex flex-col items-center justify-start gap-6 pt-6 sm:pt-10 bg-stone dark:bg-stone-900">
 		<Tabs.List class="h-fit p-1.5">
-			<Tabs.Trigger value="gallery" class="px-7 sm:px-8 text-md font-medium md:text-base md:px-12">
-				<Images class="h-5 w-5 mr-2 md:mr-4" /> Gallery 
+			<Tabs.Trigger value="gallery" class="px-7 sm:px-8 text-md font-semibold md:text-base md:px-12">
+				<Images class="size-5 mr-2" /> <span class="mr-2.5">Gallery</span>
 			</Tabs.Trigger>
-			<Tabs.Trigger value="timeline" class="px-7 sm:px-8 text-md font-medium md:text-base md:px-12">
-				<CalendarFold class="h-5 w-5 mr-2 md:mr-4" /> Timeline 
+			<Tabs.Trigger value="timeline" class="px-7 sm:px-8 text-md font-semibold md:text-base md:px-12">
+				<CalendarFold class="size-5 mr-2" /> <span class="mr-2.5">Timeline</span>
 			</Tabs.Trigger>
 
 			<!-- Add more tabs header here -->
@@ -147,37 +144,37 @@
 
 		<!-- Masonry Gallery -->
 		{#if !browser}
-			<div class="flex w-full h-full flex-grow px-4 sm:px-6 md:px-10 lg:px-32">
-				<Skeleton class="flex-grow w-auto h-auto" />
+			<div class="flex w-full h-full grow px-4 md:px-8 lg:px-16 pb-6 sm:pb-10">
+				<Skeleton class="grow w-auto h-full" />
 			</div>
 		{:else}
-			<Tabs.Content value="gallery" class="relative w-full h-full flex-grow" id="event-gallery">
+			<Tabs.Content value="gallery" class="relative w-full h-full min-h-max grow bg-stone dark:bg-stone-900" id="event-gallery">
 				<Masonry
 					items={masonryItems}
 					minColWidth={masonryMinColWidth}
 					maxColWidth={masonryMaxColWidth}
 					gap={masonryGap}
-					let:item
 					bind:masonryWidth={masonryWidth}
 					bind:masonryHeight={masonryHeight}
-					
-					class="absolute w-full h-max top-0 left-0 px-4 sm:px-6 md:px-10 lg:px-32 pb-6 sm:pb-10"
+					class="absolute w-full h-max top-0 left-0 px-4 md:px-8 lg:px-16 pb-6 sm:pb-10 bg-stone dark:bg-stone-900"
 				>
-					<enhanced:img src="{item}" alt={item.alt} class="w-full h-full rounded-md object-cover object-center bg-stone-300 dark:bg-stone-800 select-none" sizes="min({masonryMaxColWidth*1.5}px, 100vw)" loading="lazy" referrerpolicy="no-referrer-when-downgrade" />
+					{#snippet children({ item })}
+						<enhanced:img src="{item}" alt={item.alt} class="w-full h-full rounded-md object-cover object-center bg-stone-300 dark:bg-stone-800 select-none" sizes="min({masonryMaxColWidth*1.5}px, 100vw)" loading="lazy" referrerpolicy="no-referrer-when-downgrade" />
+					{/snippet}
 				</Masonry>
 			</Tabs.Content>
 
 
 			<!-- Timeline View -->
 			{#if !browser}
-				<Tabs.Content value="timeline" class="relative w-full h-full flex-grow">
+				<Tabs.Content value="timeline" class="relative w-full h-full grow">
 					<div class="absolute w-full h-full top-0 left-0 px-4 sm:px-6 md:px-10 lg:px-32 pb-6 sm:pb-10">
 						<Skeleton class="h-full w-full" />
 					</div>
 				</Tabs.Content>
 			{:else}
-				<Tabs.Content value="timeline" class="relative w-full h-full flex-grow">
-					<div class="flex flex-col items-center justify-center pb-6 sm:pb-10 gap-6 sm:gap-10">
+				<Tabs.Content value="timeline" class="relative w-full h-full grow">
+					<div class="flex flex-col items-center justify-center pb-6 sm:pb-10 gap-6 sm:gap-10 bg-stone dark:bg-stone-900">
 						<!-- Individual Articles for each data.timeline item -->
 						{#each data.timeline as item, index}
 							<article class="w-full h-full flex flex-col items-center justify-center my-4">
@@ -209,10 +206,10 @@
 									</Carousel.Root>
 
 									<!-- Show flex row wrap on larger screens -->
-									<div class="mx-12 hidden lg:flex flex-row flex-wrap gap-4 after:content-[''] after:flex-grow-[999]">
+									<div class="mx-12 hidden lg:flex flex-row flex-wrap gap-4 after:content-[''] after:grow-999">
 										{#each item.images as image}
 											<!-- Show 4 images per row but fill the row with images (increase image width to fill the row) -->
-											<div class="h-[20rem] flex-auto">
+											<div class="h-80 flex-auto">
 												<enhanced:img src="{image}" alt={image.alt} class="w-full h-full rounded-md object-cover object-center bg-stone-300 dark:bg-stone-800 select-none" sizes="70vw" loading="lazy" referrerpolicy="no-referrer-when-downgrade" />
 											</div>
 										{/each}

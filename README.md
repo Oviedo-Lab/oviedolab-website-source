@@ -7,8 +7,9 @@ This is the source code for the [oviedolab.org](https://oviedolab.org) website. 
 ### Prerequisites
 To set up this project on a new machine, first install the required runtimes and dependencies:
 
-1. Install [Node.js](https://nodejs.org/en/download/)
+1. Install [Node.js](https://nodejs.org/en/download/) version 24 or higher
 2. Install [Bun](https://bun.sh/install)
+3. Install [Rust](https://www.rust-lang.org/tools/install) and [wasm-pack](https://github.com/drager/wasm-pack) (for WebAssembly components)
 
 
 ### Installation
@@ -17,7 +18,7 @@ Then, clone the repository and install the dependencies:
 1. Clone the repository: 
 
 ```bash
-git clone https://github.com/oviedolab/oviedolab-website-source.git
+git clone https://github.com/Oviedo-Lab/oviedolab-website-source.git
 ```
 
 2. Install the dependencies:
@@ -34,10 +35,10 @@ To run the development server, use the following command:
 bun run dev
 
 # To expose the server to other devices on your network, use the following command:
-bun run dev -- --host
+bun run dev --host
 ```
 
-This will start the development server and open the website in your default browser. The server will automatically reload the page when you make changes to the source code.
+This will start the development server and open the website in your default browser. The server will automatically hot reload the page when you make changes to the source code.
 
 **Note:** The first time you run the development server or the build command, it will take some time for the program to generate optimized versions of website's assets (images, videos, etc.). These optimizations are cached in the `node_modules\.cache\imagetools\` and will be reused on subsequent runs. Because of this, when running the development server for the first time, navigating the website will be less responsive.
 
@@ -50,5 +51,11 @@ bun run build
 ```
 
 This will generate a production build of the website in the `build` directory. The contents of this directory can be deployed to a web server or hosted on GitHub Pages.
+
+To preview the production build locally, you can use the following command:
+
+```bash
+bun run preview
+```
 
 The current build of the website is available at [Oviedo-Lab/oviedo-lab.github.io](https://github.com/Oviedo-Lab/oviedo-lab.github.io).
