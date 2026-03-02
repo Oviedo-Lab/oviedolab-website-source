@@ -20,7 +20,27 @@
     import Badge from "$src/lib/components/ui/badge/badge.svelte";
     import dayjs from 'dayjs';
     import relativeTime from 'dayjs/plugin/relativeTime';
+    import utc from 'dayjs/plugin/utc';
+    import timezone from 'dayjs/plugin/timezone';
+    import customParseFormat from 'dayjs/plugin/customParseFormat';
+    dayjs.extend(utc);
+    dayjs.extend(timezone);
+    dayjs.extend(customParseFormat);
     dayjs.extend(relativeTime);
+
+    const REFERENCE_TIME_ZONE = 'America/Chicago';
+    const REFERENCE_TIME_SUFFIX = '090000'; // 9:00 AM, since defaulting to midnight for posts seems a little odd
+
+    const getRelativeDateText = (yyyymmdd?: string) => {
+        if (!yyyymmdd) return "";
+        const nowInReferenceTimeZone = dayjs().tz(REFERENCE_TIME_ZONE);
+        const parsedDateInReferenceTimeZone = dayjs.tz(
+            `${yyyymmdd} ${REFERENCE_TIME_SUFFIX}`,
+            'YYYYMMDD HHmmss',
+            REFERENCE_TIME_ZONE,
+        );
+        return ` • ${nowInReferenceTimeZone.to(parsedDateInReferenceTimeZone)}`;
+    };
 
 	let { data } = $props();
 
@@ -96,7 +116,7 @@
                                 </p>
                                 {/if}
                                 {#if content.authors && content.authors.length > 0}
-                                    {@const dayText = content.yyyymmdd ? ` • ${dayjs().to(dayjs(content.yyyymmdd, "YYYYMMDD"))}` : ""}
+                                    {@const dayText = getRelativeDateText(content.yyyymmdd)}
                                     <!-- First author only -->
                                     <p class="mt-2 mr-1 text-sm text-muted-foreground w-full text-right">
                                         {content.authors[0]}{dayText}
