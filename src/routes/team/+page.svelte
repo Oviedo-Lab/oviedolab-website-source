@@ -41,7 +41,7 @@
 	<meta property="og:title" content="Team Members - Oviedo Lab" />
 	<meta property="og:description" content="Current and past members at Oviedo Lab" />
 	<meta property="og:type" content="website" />
-	<meta property="og:url" content="https://oviedolab.org/team/" />
+	<meta property="og:url" content="https://oviedolab.org/team" />
 	<meta property="og:image" content="https://oviedolab.org/oviedolab-social-thumbnail.png" />
 	<meta property="og:image:alt" content="Team Members - Oviedo Lab" />
 	<meta property="og:image:width" content="1200" />
@@ -57,7 +57,7 @@
 	<meta name="twitter:card" content="summary_large_image">
 	<meta name="twitter:site" content="@">
 	<meta name="twitter:creator" content="@">
-	<meta name="twitter:url" content="https://oviedolab.org/team/">
+	<meta name="twitter:url" content="https://oviedolab.org/team">
 
 	<meta name="keywords" content="neuroscience, neural circuits, auditory cortex, social calls, mouse, rodent, animal, research, lab, washu, oviedo, hysell, team, members, current, past, alumni" />
 </svelte:head>

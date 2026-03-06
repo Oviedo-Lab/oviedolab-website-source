@@ -15,6 +15,7 @@
 
 <svelte:head>
     <meta name="robots" content="noindex" />
+    <title>HTTP {page.status} - {page.error?.message ?? 'Unexpected error'}</title>
 </svelte:head>
 
 <main class="w-full h-full">

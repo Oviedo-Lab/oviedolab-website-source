@@ -10,7 +10,7 @@
 	<meta property="og:title" content="Openings - Oviedo Lab" />
 	<meta property="og:description" content="Interested in our lab? We are open to new applications. Check out our openings" />
 	<meta property="og:type" content="website" />
-	<meta property="og:url" content="https://oviedolab.org/openings/" />
+	<meta property="og:url" content="https://oviedolab.org/openings" />
 	<meta property="og:image" content="https://oviedolab.org/oviedolab-social-thumbnail.png" />
 	<meta property="og:image:alt" content="Openings - Oviedo Lab" />
 	<meta property="og:image:width" content="1200" />
@@ -26,7 +26,7 @@
 	<meta name="twitter:card" content="summary_large_image">
 	<meta name="twitter:site" content="@">
 	<meta name="twitter:creator" content="@">
-	<meta name="twitter:url" content="https://oviedolab.org/openings/">
+	<meta name="twitter:url" content="https://oviedolab.org/openings">
 
 	<meta name="keywords" content="neuroscience, neural circuits, auditory cortex, social calls, mouse, rodent, animal, research, lab, washu, oviedo, hysell, research, job, jobs, application, openings, positions" />
 </svelte:head>
