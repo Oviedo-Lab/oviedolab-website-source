@@ -3,6 +3,8 @@ import rehypeExternalLinks from 'rehype-external-links';
 import rehypeAutolinkHeadings from 'rehype-autolink-headings';
 import rehypeSlug from 'rehype-slug';
 import relativeImages from "mdsvex-relative-images";
+import remarkMath from 'remark-math'
+import rehypeKatex from 'rehype-katex'
 /**
  * @import {ElementContent} from 'hast'
  */
@@ -36,11 +38,13 @@ const config = {
 			},
 			extensions: ['.svx', '.md'],
 			remarkPlugins: [
+				remarkMath,
 				relativeImages,
 				headings,
 				firstParagraph,
 			],
 			rehypePlugins: [
+				[rehypeKatex, {output: 'html'}],
 				[rehypeExternalLinks, { rel: ['nofollow', 'noopener', 'noreferrer'], target: '_blank' }],
 				rehypeSlug,
 				[rehypeAutolinkHeadings, {

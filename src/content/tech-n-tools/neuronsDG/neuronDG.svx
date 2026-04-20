@@ -1,0 +1,23 @@
+---
+yyyymmdd: 20260420
+authors:
+    - Michael Barkasi
+thumbnail: /src/content/tech-n-tools/neuronsDG/DG_autocorr.png
+thumbnailAlt: Artistic overlay of spike trains with autocorrelation and a dichotomized Gaussian with covariance. This package uses the latter to generate simulations of the former.
+tags:
+    - circuit mapping
+    - simulation
+    - SNNs
+---
+
+# **neuronsDG** -- Modelling neurons via dichotomized Gaussians
+
+**neuronsDG** is an R/C++ package for simulating neurons, currently under development at Oviedo Lab. The package is built around the core object class neuron, a C++ class accessible through R via Rcpp modules and wrappers. This class is meant for modeling the spiking of single neurons with dichotomized Gaussians.
+
+GitHub: https://github.com/michaelbarkasi/neuronsDG
+
+Documentation: https://michaelbarkasi.github.io/neuronsDG/
+
+
+![Artistic overlay of spike trains with autocorrelation and a dichotomized Gaussian with covariance. This package uses the latter to generate simulations of the former.](./DG_autocorr.png)
+> Artistic overlay of spike trains with autocorrelation and a dichotomized Gaussian with covariance. This package uses the latter to generate simulations of the former.
