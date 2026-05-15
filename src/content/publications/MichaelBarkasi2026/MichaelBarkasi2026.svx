@@ -1,0 +1,18 @@
+---
+title: Logistic regression for estimating functional effects with spatial transcriptomics
+authors:
+    - Michael Barkasi
+    - Cody Nhan Pham
+    - Demetrios Neophytou
+    - Hysell V. Oviedo
+yyyymmdd: 20260522
+doi: https://doi.org/10.1093/nar/gkag466
+journal: Nucleic Acids Research
+url: https://academic.oup.com/nar/article/54/9/gkag466/8678694
+isPreprint: false
+isReviewArticle: false
+thumbnail: /src/content/publications/MichaelBarkasi2026/MichaelBarkasi2026-thumbnail.webp
+thumbnailSummary: "Graphical abstract showcasing the wisp model's workflow, from spatial transcriptomics data to hypothesis testing."
+---
+
+Spatial transcriptomics (ST) unlocks potential for studying gene functions in processes that depend on orchestration of transcription across space. However, analysis tools for ST remain aimed at data exploration, with few resources for hypothesis testing. What's missing is a way to test whether a factor of interest affects functionally relevant parameters of a gene's spatial distribution. We present a tool to fill this gap, which we call a warped sigmoidal Poisson-process mixed-effects (WSP, pronounced "wisp") model. WSP models are the first ST tool allowing researchers to test critical questions without bespoke preprocessing pipelines for identifying key spatial parameters. By aligning coordinates to an axis of interest and letting a likelihood-based regression find between-group effects on expression rates and boundaries, WSP models replace error-prone manual preprocessing with minimally biased hypothesis testing. After introducing WSP models, we demonstrate their statistical validity using semi-synthetic simulated data and their ability to test for effects by applying them to MERFISH data from mouse somatosensory cortex and bulk sequencing data from mouse liver lobules with extrapolated spatial coordinates. Together, these validations and applications demonstrate that WSP models offer a practical and statistically rigorous approach to quantifying and testing for effects on spatial variation in transcriptomic data.
