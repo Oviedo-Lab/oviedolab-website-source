@@ -212,6 +212,32 @@
             ]
         },
         {
+            "isAlumni": false,
+            "name": "Laura N Massó Quiñones",
+            "title": "Research Technician",
+            "suffix": "BS.",
+            "includeSuffix": false,
+            "education": [
+                "2024, BS., Biotechnology, University of Puerto Rico at Ponce"
+            ],
+            "honorsAndAwards": [],
+            "CV": {
+                "title": "Laura N Massó Quiñones' CV",
+                "url": "/src/content/team/LauraNMassoQuinones/CV_LauraNMassoQuinones_2026.pdf"
+            },
+            "images": [
+                "/src/content/team/LauraNMassoQuinones/headshot_LauraNMassoQuinones_2026.jpg"
+            ],
+            "biography": [
+                "I was born and raised in Ponce, PR where I also completed my undergraduate degree. I was later accepted into the Neuroscience postbaccalaureate program at Washington University, where I investigated the role of the nociceptin opioid peptide in pain and motivation under the guidance of Dr. Daniel Castro. After completing my program, I joined the Oviedo lab, where I hope to continue developing my skills in stereotaxic surgery.",
+                "I aim to pursue the MD/PhD pathway and conduct research that investigates how specific neuronal circuits mediate the transition from adaptive to maladaptive affective states and neuropsychiatric disorders.",
+                "Outside of the lab, I like swimming, exploring new restaurants with my friends, and going thrifting!"
+            ],
+            "externalLinks": [
+
+            ]
+        },
+        {
             "isAlumni": true,
             "name": "Stephani Martinez Barrera",
             "title": "Postdoctoral Researcher",
