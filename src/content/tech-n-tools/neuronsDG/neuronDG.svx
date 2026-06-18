@@ -14,8 +14,7 @@ tags:
 
 **neuronsDG** is an R/C++ package for simulating neurons, currently under development at Oviedo Lab. The package is built around the core object class neuron, a C++ class accessible through R via Rcpp modules and wrappers. This class is meant for modeling the spiking of single neurons with dichotomized Gaussians.
 
-GitHub: https://github.com/michaelbarkasi/neuronsDG
-
+GitHub: https://github.com/michaelbarkasi/neuronsDG <br/>
 Documentation: https://michaelbarkasi.github.io/neuronsDG/
 
 

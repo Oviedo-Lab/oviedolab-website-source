@@ -1,5 +1,5 @@
 ---
-yyyymmdd: 20260419
+yyyymmdd: 20260515
 authors:
     - Michael Barkasi
     - Cody Nhan Pham
@@ -13,10 +13,10 @@ tags:
 ---
 
 # **Wispack** -- An R package for warped sigmoidal Poisson-process mixed-effects modeling
+
 Wispack (pronounced "wisp package" or "wisp pack") is an R package for testing for between-group effects on spatial variation in spatial transcriptomics data. As such variation is often functional, these can be thought of as functional spatial effects (FSE).
 
-See the [GitHub repository](https://github.com/michaelbarkasi/wispack) for the package description, documentation, and tutorial.
-
-And check out the [preprint](https://doi.org/10.1101/2025.06.11.659209) for more details on the method and its applications.
+See the [GitHub repository](https://github.com/michaelbarkasi/wispack) for the package description, documentation, and tutorial. <br/>
+And check out the [publication](https://academic.oup.com/nar/article/54/9/gkag466/8678694) for more details on the method and its applications.
 
 ![Artistic rendering of wisp model](./wisp_art.png)

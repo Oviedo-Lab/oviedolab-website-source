@@ -149,8 +149,13 @@
 			</div>
 		{:else}
 			<Tabs.Content value="gallery" class="relative w-full h-full min-h-max grow bg-stone dark:bg-stone-900" id="event-gallery">
+				<!-- Ordered as 'balanced' for now instead of 'balanced-stable' due to a bug in svelte-bricks v0.5.0 -->
+				<!-- See issue: https://github.com/janosh/svelte-bricks/issues/60 -->
+				<!-- TODO: Check if the bug is fixed in a newer version, if so, change the order property back to 'balanced-stable' -->
 				<Masonry
+					order="balanced"
 					items={masonryItems}
+					animate={false}
 					minColWidth={masonryMinColWidth}
 					maxColWidth={masonryMaxColWidth}
 					gap={masonryGap}

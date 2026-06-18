@@ -3,6 +3,7 @@ import { sveltekit } from '@sveltejs/kit/vite';
 import { enhancedImages } from '@sveltejs/enhanced-img';
 import wasmPack from "vite-plugin-wasm-pack";
 import { defineConfig } from 'vite';
+import { svelteSitemap } from 'svelte-sitemap/vite';
 import path from "path";
 
 export default defineConfig({
@@ -14,6 +15,14 @@ export default defineConfig({
 		enhancedImages(), // must come before the SvelteKit plugin
 		sveltekit(),
 		wasmPack("./src/lib-wasm"),
+		svelteSitemap({
+			domain: 'https://oviedolab.org',
+			trailingSlashes: false,
+			resetTime: true,
+			ignore: [
+				'404.html',
+			],
+		}),
 	],
 	resolve: {
         alias: {
@@ -29,9 +38,9 @@ export default defineConfig({
 	build: {
 		minify: 'esbuild',
 		cssMinify: true,
-		rollupOptions: {
+		rolldownOptions: {
 			output: {
-				compact: true
+				minify: true
 			}
 		}
 	},

@@ -38,8 +38,8 @@ const config = {
 			},
 			extensions: ['.svx', '.md'],
 			remarkPlugins: [
-				remarkMath,
 				relativeImages,
+				remarkMath,
 				headings,
 				firstParagraph,
 			],
