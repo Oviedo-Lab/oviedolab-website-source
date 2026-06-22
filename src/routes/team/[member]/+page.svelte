@@ -4,7 +4,8 @@
     import * as Carousel from "$lib/components/ui/carousel/index.js";
     import * as Tooltip from "$lib/components/ui/tooltip";
     
-	import { RenderIcon, SimpleIconNames, type SimpleIconNames as SimpleIconNamesType } from "$lib/components/ui/simple-icons/simple-icons.svelte";
+	import { SimpleIconNames, type SimpleIconNames as SimpleIconNamesType } from "$lib/components/ui/simple-icons/simple-icons";
+    import { RenderIcon } from "$lib/components/ui/simple-icons/simple-icons.svelte";
 	
     import {
         ExternalLink,
@@ -101,7 +102,7 @@
         <meta property="og:title" content="{data.member?.name || "Who??"} | Members - Oviedo Lab" />
         <meta property="og:description" content="{data.member?.biography.join(" ").substring(0,190)}..." />
         <meta property="og:type" content="website" />
-        <meta property="og:url" content="https://oviedolab.org/team/{data.member.name.replace(/\s/g, '')}" />
+        <meta property="og:url" content="https://oviedolab.org/team/{(data.member.urlSlug ?? data.member.name).replace(/\s/g, '')}" />
         <meta property="og:image" content="https://oviedolab.org/oviedolab-social-thumbnail.png" />
         <meta property="og:image:alt" content="{data.member?.name || "Who??"} | Members - Oviedo Lab" />
         <meta property="og:image:width" content="1200" />
@@ -117,7 +118,7 @@
         <meta name="twitter:card" content="summary_large_image">
         <meta name="twitter:site" content="@">
         <meta name="twitter:creator" content="@">
-        <meta name="twitter:url" content="https://oviedolab.org/team/{data.member.name.replace(/\s/g, '')}">
+        <meta name="twitter:url" content="https://oviedolab.org/team/{(data.member.urlSlug ?? data.member.name).replace(/\s/g, '')}">
 
         <meta name="keywords" content="neuroscience, neural circuits, auditory cortex, social calls, mouse, rodent, animal, research, lab, washu, oviedo, hysell, team, member, {data.member.name}, {data.member.name.split(' ').join(', ')}" />
     {/if}

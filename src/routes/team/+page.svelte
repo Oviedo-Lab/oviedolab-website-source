@@ -77,7 +77,7 @@
 			{#each data.team as member}
 				{#if !member.isAlumni}
 
-				<Button variant="outline" class="w-fit h-fit max-w-full rounded-lg bg-muted/40" href={`${page.route.id}/${member.name.replace(/\s/g, '')}`}>
+				<Button variant="outline" class="w-fit h-fit max-w-full rounded-lg bg-muted/40" href={`${page.route.id}/${(member.urlSlug ?? member.name).replace(/\s/g, '')}`}>
 					<div class="flex flex-col items-center justify-start gap-2 px-1 h-fit w-[24rem] max-w-[99vw]" role="button">
 						<Avatar.Root class="size-44 rounded-full mt-2 sm:mt-4 sm:size-52 md:size-52 lg:size-56">
 							<!-- Validate that the image exists and the return type from fullImagePath is a string !="##" -->
@@ -120,7 +120,7 @@
 		<div class="max-w-full w-[92%] sm:w-[85%] pt-3 pb-5 flex flex-col items-center justify-start gap-6 sm:flex-row sm:flex-wrap sm:gap-8 sm:justify-center">
 			{#each data.team as member}
 				{#if member.isAlumni}
-				<Button variant="outline" class="w-fit h-fit max-w-full rounded-lg" href={`${page.route.id}/${member.name.replace(/\s/g, '')}`}>
+				<Button variant="outline" class="w-fit h-fit max-w-full rounded-lg" href={`${page.route.id}/${(member.urlSlug ?? member.name).replace(/\s/g, '')}`}>
 					<div class="flex flex-col items-start justify-center gap-1 max-w-full">
 						<h3 class="text-ellipsis whitespace-nowrap overflow-hidden max-w-full text-xl font-bold text-foreground mx-auto text-center mt-2 sm:mt-2 md:text-xl lg:text-2xl">{member.name}</h3>
 						<p class="text-ellipsis whitespace-nowrap overflow-hidden text-sm text-foreground mx-auto text-center mb-1 sm:mb-4 md:text-md lg:text-lg">{member.title}</p>

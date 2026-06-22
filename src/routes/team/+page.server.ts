@@ -1,5 +1,5 @@
 import teamData from '$content/team/team.json';
-import { type SimpleIconNames } from '$src/lib/components/ui/simple-icons/simple-icons.svelte';
+import { type SimpleIconNames } from '$lib/components/ui/simple-icons';
 
 import type { Component } from 'svelte';
 
@@ -110,6 +110,7 @@ export interface ExternalLinkData {
 
 export interface TeamMember {
     name: string;
+    urlSlug?: string;
     title: string;
     suffix: string;
     includeSuffix: boolean;

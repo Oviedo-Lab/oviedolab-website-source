@@ -1,10 +1,15 @@
 import teamData from '$content/team/team.json';
 import { error } from '@sveltejs/kit';
+import type { PageServerLoadEvent } from './$types';
 import type { TeamMember } from '../+page.server';
 
-export function load({ params }) {
-    // Find the member in the teamData object.name that, after removing the spaces, matches the params.slug
-    const thisMember = teamData.team.find(member => member.name?.replace(/\s/g, '') === params.member.replace(/\s/g, ''));
+function getMemberSlug(member: TeamMember): string {
+    return (member.urlSlug ?? member.name)?.replace(/\s/g, '');
+}
+
+export function load({ params }: PageServerLoadEvent) {
+    // Find the member whose slug matches the URL param. Prefer urlSlug when set, else fall back to display name with spaces removed.
+    const thisMember = teamData.team.find(member => getMemberSlug(member as TeamMember) === params.member.replace(/\s/g, ''));
 
     // Filter only valid members
     let validMember = thisMember && thisMember.name;
